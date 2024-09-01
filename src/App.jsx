@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Feedback from './components/Feedback/Feedback';
 import Options from './components/Options/Options';
+import Description from './components/Description/Description';
 import Notification from './components/Notification/Notification';
 
 
@@ -10,7 +11,7 @@ export default function App() {
     if (savedOptions !== null) {
       return JSON.parse(savedOptions);
     }
-    return { good: 0, neutral: 0, bad: 0 }; // Fixed initialization
+    return { good: 0, neutral: 0, bad: 0 };
   });
 
   useEffect(() => {
@@ -33,8 +34,7 @@ export default function App() {
 
   return (
     <div>
-      <h1>Sip Happens Café</h1>
-      <p>Please leave your feedback about our service by selecting one of the options below.</p>
+     <Description />
       <Options
         updateFeedback={updateFeedback}
         resetFeedback={resetFeedback}
